@@ -1,0 +1,18 @@
+class Solution:
+    def sumFourDivisors(self, nums: List[int]) -> int:
+        ans = 0
+        for i in range(len(nums)):
+            k = []
+            n = nums[i]
+            j = 1
+            while j * j <= n:
+                if n % j == 0:
+                    k.append(j)
+                    if j != n // j:
+                        k.append(n // j)
+                if len(k) > 4:
+                    break
+                j += 1
+            if len(k) == 4:
+                ans += sum(k)
+        return ans
