@@ -1,0 +1,10 @@
+class Solution:
+    def maximizeSquareArea(self, m: int, n: int, hFences: List[int], vFences: List[int]) -> int:
+        MOD = 10**9 + 7
+        
+        def all_gaps(fences, bound):
+            pos = sorted([1] + fences + [bound])
+            return {pos[j] - pos[i] for i in range(len(pos)) 
+                    for j in range(i + 1, len(pos))}
+        common = all_gaps(hFences, m) & all_gaps(vFences, n)
+        return -1 if not common else (max(common) ** 2) % MOD
