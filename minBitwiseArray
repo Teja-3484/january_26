@@ -1,0 +1,13 @@
+class Solution:
+    def minBitwiseArray(self, nums: List[int]) -> List[int]:
+        ans=[]
+        for i in nums:
+            f=False
+            for j in range(i):
+                if j|(j+1)==i:
+                    ans.append(j)
+                    f=True
+                    break
+            if not f:
+                ans.append(-1)
+        return ans
