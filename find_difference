@@ -1,0 +1,11 @@
+class Solution:
+    def findTheDifference(self, s: str, t: str) -> str:
+        n=len(s)
+        m=len(t)
+        sum1=0
+        sum2=0
+        for i in range(0,n):
+            sum1=sum1+ord(s[i])
+        for j in range(0,m):
+            sum2=sum2+ord(t[j])
+        return chr(sum2-sum1)
